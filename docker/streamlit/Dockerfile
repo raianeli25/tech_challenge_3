@@ -1,4 +1,4 @@
-FROM yourstreamlitapp:latest
+FROM python:3.12.2-slim
 
 WORKDIR /usr/src/app
 
@@ -8,8 +8,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # dependencies
-RUN pip install --upgrade pip setuptools wheel \
-    && pip install -r ../app/requirements.txt \
-    && rm -rf /root/.cache/pip
+COPY ../app/requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
 
 ENTRYPOINT ["streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
