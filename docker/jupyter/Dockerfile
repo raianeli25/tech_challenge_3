@@ -1,4 +1,4 @@
 FROM jupyter/minimal-notebook
 
-COPY ./requirements.txt /tmp/requirements.txt
+COPY ../training_model/requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt

@@ -19,7 +19,7 @@ logging.info('Created instances of FatAPI')
 @app.get("/")
 async def home():
 
-    return "Hello World!"
+    return "Hello World!!"
 
 @app.get("/connect_db")
 async def connect_db():
