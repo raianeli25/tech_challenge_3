@@ -1,6 +1,6 @@
-version: "3.1"
 services:
-  app:
+    
+  app-ui:
       build: 
         context: ./
         dockerfile: ./docker/streamlit/Dockerfile
@@ -8,7 +8,8 @@ services:
           - ./app:/usr/src/app
       ports:
           - 8501:8501
-  api:
+  
+  api-data:
     build:
       context: ./
       dockerfile: ./docker/fastapi/Dockerfile
@@ -16,6 +17,7 @@ services:
       - ./src/:/app/src
     ports:
       - 8000:8000
+  
   jupyter:
     build: 
       context: .
@@ -26,8 +28,9 @@ services:
       - 8888:8888
     container_name: jupyter_notebook
     command: "start-notebook.sh --NotebookApp.token="
-  db:
-    image: postgres:latest
+  
+  app-database:
+    image: postgres:16.4
     restart: always
     environment:
       POSTGRES_USER: postgres
