@@ -26,7 +26,7 @@ async def connect_db():
     
     try:
 
-        conn = psycopg2.connect("host=db dbname=postgres user=postgres password=postgres")
+        conn = psycopg2.connect("host=app-database dbname=postgres user=postgres password=postgres")
 
         return "Conexão OK"
     
