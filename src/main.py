@@ -15,7 +15,7 @@ db_interface = DBInterface(
     hostname=db_defs.POSTGRES_HOST
 )
 
-CSV_FILE = ".data/spotify_raw_dataset.csv"
+CSV_FILE = "/data/spotify_raw_dataset.csv"
 
 logging.basicConfig(
     format='%(asctime)s %(levelname)s %(message)s',
@@ -45,13 +45,15 @@ async def connect_db():
         return "Connection Failed"
     
 @app.get("/load_data_to_db")
-async def connect_db():
+async def load_data_to_db():
     try:
+        # conn_engine = db_interface.get_connection_engine()
         spotify_df = pd.read_csv(CSV_FILE)
-        conn_engine = db_interface.get_connection_engine()
-        return spotify_df.to_dict()
+        # return {spotify_df.to_dict()}
+        return "OK3!"
     except:
         return "Ops! Something went wrong!"
+
 
 
 
