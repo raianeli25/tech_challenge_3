@@ -1,13 +1,13 @@
 services:
-    
+
   app-ui:
-      build: 
-        context: ./
-        dockerfile: ./docker/streamlit/Dockerfile
-      volumes:
-          - ./app:/usr/src/app
-      ports:
-          - 8501:8501
+    build: 
+      context: ./
+      dockerfile: ./docker/streamlit/Dockerfile
+    volumes:
+      - ./app:/usr/src/app
+    ports:
+      - 8501:8501
   
   api-data:
     build:
@@ -17,6 +17,11 @@ services:
       - ./src/:/app/src
     ports:
       - 8000:8000
+    environment:
+      DATABASE_HOST: app-database  # Set the host for your database here.
+      DATABASE_USER: pguser         # Match the env variables from app-database
+      DATABASE_PASSWORD: pgpass
+      DATABASE_NAME: pgdb
   
   jupyter:
     build: 
@@ -36,10 +41,10 @@ services:
       POSTGRES_USER: pguser
       POSTGRES_PASSWORD: pgpass
       POSTGRES_DB: pgdb
-      POSTGRES_HOST: localhost
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
       - 5432:5432
+  
 volumes:
   pgdata:
