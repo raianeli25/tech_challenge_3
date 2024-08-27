@@ -50,8 +50,18 @@ async def load_data_to_db():
     try:
         spotify_df = pd.read_csv(CSV_FILE)
         conn_engine = db_interface.get_connection_engine()
-        spotify_df.to_sql(TABLE_NAME, con=conn_engine, if_exists='replace', index=False)
-        return "CSV readed with success"
+        n_rows = spotify_df.to_sql(TABLE_NAME, con=conn_engine, if_exists='replace', index=False)
+        return f"The file {CSV_FILE} has been loaded to psql database. !{n_rows}!"
+    except:
+        return "Ops! Something went wrong!"
+
+@app.get("/count_total_rows_db")
+async def count_total_rows_db():
+    try:
+        conn_engine = db_interface.get_connection_engine()
+        sql_str = f'SELECT count(*) AS count_1 FROM "{TABLE_NAME}"'
+        df = pd.read_sql(sql_str,con=conn_engine)
+        return f"Total number of rows = {df['count_1'][0]}"
     except:
         return "Ops! Something went wrong!"
 
