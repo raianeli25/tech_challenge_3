@@ -16,6 +16,7 @@ db_interface = DBInterface(
 )
 
 CSV_FILE = "./data/spotify_raw_dataset.csv"
+TABLE_NAME = "Spotify_Songs"
 
 logging.basicConfig(
     format='%(asctime)s %(levelname)s %(message)s',
@@ -45,10 +46,11 @@ async def connect_db():
         return "Connection Failed"
     
 @app.get("/load_data_to_db")
-async def connect_db():
+async def load_data_to_db():
     try:
         spotify_df = pd.read_csv(CSV_FILE)
         conn_engine = db_interface.get_connection_engine()
+        spotify_df.to_sql(TABLE_NAME, con=conn_engine, if_exists='replace', index=False)
         return "CSV readed with success"
     except:
         return "Ops! Something went wrong!"
