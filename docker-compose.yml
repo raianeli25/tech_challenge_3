@@ -29,6 +29,7 @@ services:
       dockerfile: ./docker/jupyter/Dockerfile
     volumes:
       - ./training_model:/home/jovyan/training_model
+      - ./src/interfaces:/home/jovyan/training_model/interfaces
     ports:
       - 8888:8888
     container_name: jupyter_notebook
