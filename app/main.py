@@ -43,8 +43,8 @@ def sidebar_input():
     artist_name = st.sidebar.text_input('Artista', placeholder='Digite o nome do artista')
     album_name = st.sidebar.text_input('Álbum',  placeholder='Digite o nome do álbum')
     track_genre = st.sidebar.selectbox('Gênero', track_list, index=None, placeholder='Selecione o gênero da música')
-    loudness = st.sidebar.number_input('Loudness', min_value=-50, max_value=5, value=None, placeholder='Valores entre -50 e 5')
-    duration_s = st.sidebar.number_input('Duração', min_value=0, max_value=1000, value=None, placeholder='Duração da música em segundos')
+    loudness = st.sidebar.number_input('Loudness (dB)', min_value=-50, max_value=5, value=None, placeholder='Valores entre -50 e 5')
+    duration_s = st.sidebar.number_input('Duração (S)', min_value=0, max_value=1000, value=None, placeholder='Duração da música em segundos')
 
     if duration_s is None:
         duration_ms = 0
@@ -142,4 +142,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
