@@ -24,7 +24,7 @@ Os dados armazenados no Postgres DB são lidos dentro do Jupyter Notebook, e ent
 
 O artefato de modelo é carregado pela aplicação web em streamlit, que fará o consumo do modelo a partir de dados de entrada inseridos pelo usuário.
 
----
+
 
 ### Estrutura de pastas **📂**
 
@@ -103,4 +103,4 @@ tech_challenge_3
 
 ---
 
-Clique [aqui](https://drive.google.com/file/d/1UBnxC9W6VpCsClhSPbwNGe3lyyaXc6W3/view?usp=sharing) e assita a demo.
+Clique [aqui](https://drive.google.com/file/d/1I8h3VjWKKjdnezxJLZ9mHr7h5TlCTnmS/view) e assita a demo.
