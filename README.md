@@ -40,7 +40,10 @@ O artefato de modelo é carregado pela aplicação web em streamlit, que fará o
 ```
 tech_challenge_3
 ├── app
-│   ├── main.py
+│   ├── data
+|   |   └── model_svc_classifier
+│   ├── config.py
+|   ├── main.py
 │   └── requirements.txt
 ├── docker
 │   ├── fastapi
@@ -100,4 +103,4 @@ tech_challenge_3
 
 ---
 
-Clique [aqui](colocar link do drive) e assita a demo.
+Clique [aqui](https://drive.google.com/file/d/1UBnxC9W6VpCsClhSPbwNGe3lyyaXc6W3/view?usp=sharing) e assita a demo.
