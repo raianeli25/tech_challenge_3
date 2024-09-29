@@ -23,6 +23,7 @@ Nela, verificamos que os dados, originalmente do Kaggle, são salvos no formato 
 Os dados armazenados no Postgres DB são lidos dentro do Jupyter Notebook, e então utilizados para todas as etapas de construção do modelo, desde a análise exploratória dos dados, até o treinamento e validação. Como resultado, o modelo campeão é salvo como um artefato (pickle). 
 
 O artefato de modelo é carregado pela aplicação web em streamlit, que fará o consumo do modelo a partir de dados de entrada inseridos pelo usuário.
+
 ---
 
 ### Estrutura de pastas **📂**
@@ -39,7 +40,10 @@ O artefato de modelo é carregado pela aplicação web em streamlit, que fará o
 ```
 tech_challenge_3
 ├── app
-│   ├── main.py
+│   ├── data
+|   |   └── model_svc_classifier
+│   ├── config.py
+|   ├── main.py
 │   └── requirements.txt
 ├── docker
 │   ├── fastapi
@@ -88,7 +92,7 @@ tech_challenge_3
 
 ---
 
-1. Certifique-se de que você possui Docker Engine sob uma máquina Linux (pode ser uma virtualização Linux, tipo WSL)
+1. Certifique-se de que você possui uma instalação Docker funcionando.
 2. Vá na raiz do projeto (ou seja, na raíz de `tech_challenge_3`) e rode o comando `docker compose up --build -d`. A criação dos containers demora em torno de 5 minutos, mas pode variar dependendo das configurações do seu computador.
 3. Certifique-se de que os containers estão com state `running`.
 4. Certifique-se que você tem os endereços e portas de rede mapeadas para o uso da chamada via `localhost`.
@@ -99,4 +103,4 @@ tech_challenge_3
 
 ---
 
-Clique [aqui](colocar link do drive) e assita a demo.
+Clique [aqui](https://drive.google.com/file/d/1UBnxC9W6VpCsClhSPbwNGe3lyyaXc6W3/view?usp=sharing) e assita a demo.
